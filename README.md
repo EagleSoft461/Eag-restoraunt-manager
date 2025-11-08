@@ -34,7 +34,8 @@ Profesyonel restoran yönetim sistemi - Modern, kullanıcı dostu ve ölçeklene
 - **Kasiyer** - Ödeme ve fatura işlemleri
 
 💻 Teknolojiler
-https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white
+### Database
+- **💾 Veritabanı:** [MySQL]
 ### Adım Adım Kurulum
 
 1. **Repository'yi klonla**
