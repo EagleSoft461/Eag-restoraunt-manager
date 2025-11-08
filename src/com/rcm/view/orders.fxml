@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.rcm.controller.OrderController">
+
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <Label text="📦 Sipariş Yönetimi"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Yeni Sipariş Formu -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Yeni Sipariş:" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="tableComboBox" promptText="Masa Seçin" prefWidth="120"/>
+        <Button fx:id="createOrderButton" text="➕ Yeni Sipariş" onAction="#createNewOrder"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Ürün Ekleme Formu -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Ürün Ekle:" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="menuComboBox" promptText="Menüden Seçin" prefWidth="150"/>
+        <Label text="Adet:"/>
+        <Spinner fx:id="quantitySpinner" prefWidth="80"/>
+        <Button fx:id="addItemButton" text="🛒 Sepete Ekle" onAction="#addItemToOrder"
+                style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+        <Button fx:id="completeOrderButton" text="✅ Siparişi Tamamla" onAction="#completeOrder"
+                style="-fx-background-color: #2ecc71; -fx-text-fill: white;"/>
+        <Button text="❌ İptal" onAction="#cancelOrder"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Mevcut Siparişler -->
+    <Label text="Aktif Siparişler:" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="orderTable" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colOrderId" text="Sipariş No" prefWidth="80"/>
+            <TableColumn fx:id="colTableNumber" text="Masa No" prefWidth="80"/>
+            <TableColumn fx:id="colOrderDate" text="Sipariş Zamanı" prefWidth="150"/>
+            <TableColumn fx:id="colTotalAmount" text="Toplam Tutar" prefWidth="100"/>
+            <TableColumn fx:id="colStatus" text="Durum" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Sipariş Detayları -->
+    <Label text="Sipariş Detayları:" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="orderItemsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colItemName" text="Ürün Adı" prefWidth="150"/>
+            <TableColumn fx:id="colItemPrice" text="Birim Fiyat" prefWidth="100"/>
+            <TableColumn fx:id="colQuantity" text="Adet" prefWidth="80"/>
+            <TableColumn fx:id="colItemTotal" text="Toplam" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+</VBox>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.rcm.controller.CustomerMenuController"
+      style="-fx-background-color: #f8f9fa;">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Başlık -->
+    <Label text="🍽️ EAG RESTORAN - DİJİTAL MENÜ"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-alignment: center;"/>
+
+    <!-- Kategori Filtresi -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Kategori:" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="categoryComboBox" prefWidth="150"/>
+        <Label fx:id="totalLabel" text="Toplam: 0₺"
+               style="-fx-font-weight: bold; -fx-text-fill: #e74c3c; -fx-font-size: 16px;"/>
+    </HBox>
+
+    <!-- Menü Öğeleri -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <FlowPane fx:id="menuFlowPane" hgap="15" vgap="15"/>
+    </ScrollPane>
+
+    <!-- Sepet İşlemleri -->
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <Button text="🗑️ Sepeti Temizle" onAction="#clearCart"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+        <Button fx:id="checkoutButton" text="💳 Siparişi Tamamla" onAction="#checkout"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+    </HBox>
+
+</VBox>

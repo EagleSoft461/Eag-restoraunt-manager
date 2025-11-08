@@ -1,0 +1,10 @@
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.rcm.ui.DashboardController">
+    <children>
+        <Label text="Restaurant Chain Manager" layoutX="300" layoutY="20"
+               style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+        <Button text="Şubeler" layoutX="50" layoutY="80" fx:id="btnBranches" />
+        <Button text="Çalışanlar" layoutX="150" layoutY="80" fx:id="btnEmployees" />
+        <Button text="Menü" layoutX="270" layoutY="80" fx:id="btnMenu" />
+        <Button text="Siparişler" layoutX="360" layoutY="80" fx:id="btnOrders" />
+    </children>
+</AnchorPane>

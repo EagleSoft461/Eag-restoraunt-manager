@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.rcm.controller.StockController">
+
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <Label text="📦 Stok Takibi"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Stok Ekleme Formu -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <VBox spacing="5">
+            <Label text="Ürün Adı:"/>
+            <TextField fx:id="txtStockName" promptText="Ürün adı" prefWidth="150"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Kategori:"/>
+            <TextField fx:id="txtStockCategory" promptText="Kategori" prefWidth="120"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Miktar:"/>
+            <TextField fx:id="txtQuantity" promptText="Miktar" prefWidth="80"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Birim:"/>
+            <TextField fx:id="txtUnit" promptText="kg, lt, adet" prefWidth="80"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Min. Stok:"/>
+            <TextField fx:id="txtMinStock" promptText="Min. stok" prefWidth="80"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Tedarikçi:"/>
+            <TextField fx:id="txtSupplier" promptText="Tedarikçi" prefWidth="120"/>
+        </VBox>
+    </HBox>
+
+    <!-- Butonlar -->
+    <HBox spacing="10">
+        <Button text="➕ Stok Ekle" onAction="#addStockItem"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="🔄 Stok Güncelle" onAction="#updateStock"
+                style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+        <Button text="⚠️ Düşük Stok" onAction="#showLowStock"
+                style="-fx-background-color: #f39c12; -fx-text-fill: white;"/>
+        <Button text="🗑️ Formu Temizle" onAction="#clearStockForm"
+                style="-fx-background-color: #95a5a6; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Stok Tablosu -->
+    <Label text="📋 Stok Durumu:" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="stockTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colStockId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colStockName" text="Ürün Adı" prefWidth="120"/>
+            <TableColumn fx:id="colStockCategory" text="Kategori" prefWidth="100"/>
+            <TableColumn fx:id="colQuantity" text="Miktar" prefWidth="80"/>
+            <TableColumn fx:id="colUnit" text="Birim" prefWidth="60"/>
+            <TableColumn fx:id="colMinStock" text="Min. Stok" prefWidth="80"/>
+            <TableColumn fx:id="colSupplier" text="Tedarikçi" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+</VBox>

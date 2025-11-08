@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.rcm.controller.PaymentController">
+
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <Label text="💳 Ödeme Sistemi"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Ödeme Formu -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <VBox spacing="5">
+            <Label text="Masa No:"/>
+            <ComboBox fx:id="tableComboBox" promptText="Masa seç" prefWidth="100"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Sipariş No:"/>
+            <TextField fx:id="txtOrderId" promptText="Sipariş no" prefWidth="80"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Tutar (₺):"/>
+            <TextField fx:id="txtAmount" promptText="Tutar" prefWidth="80"/>
+        </VBox>
+        <VBox spacing="5">
+            <Label text="Ödeme Yöntemi:"/>
+            <ComboBox fx:id="paymentMethodComboBox" promptText="Yöntem seç" prefWidth="120"/>
+        </VBox>
+    </HBox>
+
+    <!-- Ödeme Butonları -->
+    <HBox spacing="10">
+        <Button text="💳 Ödemeyi Tamamla" onAction="#processPayment"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Button text="🧾 Fatura Oluştur" onAction="#generateInvoice"
+                style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+        <Button text="📊 Gelir Raporu" onAction="#showRevenueReport"
+                style="-fx-background-color: #9b59b6; -fx-text-fill: white;"/>
+        <Button text="🗑️ Formu Temizle" onAction="#clearPaymentForm"
+                style="-fx-background-color: #95a5a6; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Gelir Bilgisi -->
+    <HBox spacing="20">
+        <Label fx:id="lblTotalRevenue" text="Toplam Ciro: 0₺"
+               style="-fx-font-weight: bold; -fx-text-fill: #2c3e50; -fx-font-size: 14px;"/>
+        <Label fx:id="lblTodayRevenue" text="Bugünkü Ciro: 0₺"
+               style="-fx-font-weight: bold; -fx-text-fill: #e74c3c; -fx-font-size: 14px;"/>
+    </HBox>
+
+    <!-- Ödeme Geçmişi -->
+    <Label text="📋 Ödeme Geçmişi:" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="paymentTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colPaymentId" text="Ödeme No" prefWidth="80"/>
+            <TableColumn fx:id="colOrderId" text="Sipariş No" prefWidth="80"/>
+            <TableColumn fx:id="colTableNumber" text="Masa No" prefWidth="80"/>
+            <TableColumn fx:id="colAmount" text="Tutar (₺)" prefWidth="80"/>
+            <TableColumn fx:id="colPaymentMethod" text="Yöntem" prefWidth="100"/>
+            <TableColumn fx:id="colPaymentDate" text="Tarih" prefWidth="150"/>
+            <TableColumn fx:id="colStatus" text="Durum" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+</VBox>

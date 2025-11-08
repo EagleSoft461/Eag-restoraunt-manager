@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.rcm.controller.MenuController">
+
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <Label text="📋 Menü Yönetimi"
+           style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Form Alanı -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <VBox spacing="5">
+            <Label text="Ürün Adı:"/>
+            <TextField fx:id="txtName" promptText="Ürün adı" prefWidth="150"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Fiyat (₺):"/>
+            <TextField fx:id="txtPrice" promptText="Fiyat" prefWidth="80"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Kategori:"/>
+            <TextField fx:id="txtCategory" promptText="Kategori" prefWidth="120"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Açıklama:"/>
+            <TextField fx:id="txtDescription" promptText="Açıklama" prefWidth="200"/>
+        </VBox>
+    </HBox>
+
+    <!-- Butonlar -->
+    <HBox spacing="10">
+        <Button text="➕ Ekle" onAction="#addMenuItem"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white;"/>
+        <Button text="🗑️ Sil" onAction="#deleteMenuItem"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+        <Button text="🔄 Temizle" onAction="#clearForm"
+                style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Tablo -->
+    <Label text="Mevcut Menü:" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="menuTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colName" text="Ürün Adı" prefWidth="120"/>
+            <TableColumn fx:id="colPrice" text="Fiyat" prefWidth="80"/>
+            <TableColumn fx:id="colCategory" text="Kategori" prefWidth="100"/>
+            <TableColumn fx:id="colDescription" text="Açıklama" prefWidth="200"/>
+        </columns>
+    </TableView>
+
+</VBox>

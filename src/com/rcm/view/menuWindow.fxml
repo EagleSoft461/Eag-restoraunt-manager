@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="15" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.rcm.controller.MenuController">
+
+    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+
+    <!-- Başlık -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="📋 Menü Yönetimi"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+        <Label text="(Ayrı Pencere)"
+               style="-fx-font-size: 12px; -fx-text-fill: #7f8c8d;"/>
+    </HBox>
+
+    <!-- Form Alanı -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <VBox spacing="5">
+            <Label text="Ürün Adı:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtName" promptText="Ürün adını girin" prefWidth="200"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Fiyat (₺):" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtPrice" promptText="Fiyat girin" prefWidth="100"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Kategori:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtCategory" promptText="Kategori girin" prefWidth="150"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Açıklama:" style="-fx-font-weight: bold;"/>
+            <TextField fx:id="txtDescription" promptText="Açıklama girin" prefWidth="250"/>
+        </VBox>
+    </HBox>
+
+    <!-- Butonlar -->
+    <HBox spacing="10">
+        <Button fx:id="btnAdd" text="➕ Yeni Ürün Ekle" onAction="#addMenuItem"
+                style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Button fx:id="btnDelete" text="🗑️ Seçileni Sil" onAction="#deleteMenuItem"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        <Button text="🔄 Formu Temizle" onAction="#clearForm"
+                style="-fx-background-color: #3498db; -fx-text-fill: white;"/>
+    </HBox>
+
+    <!-- Tablo -->
+    <Label text="Mevcut Menü Öğeleri:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+    <TableView fx:id="menuTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colName" text="Ürün Adı" prefWidth="150"/>
+            <TableColumn fx:id="colPrice" text="Fiyat (₺)" prefWidth="100"/>
+            <TableColumn fx:id="colCategory" text="Kategori" prefWidth="120"/>
+            <TableColumn fx:id="colDescription" text="Açıklama" prefWidth="250"/>
+        </columns>
+    </TableView>
+
+</VBox>
